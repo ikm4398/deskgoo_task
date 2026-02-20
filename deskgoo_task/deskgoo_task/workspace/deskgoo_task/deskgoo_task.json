@@ -1,0 +1,235 @@
+{
+ "app": "deskgoo_task",
+ "charts": [],
+ "content": "[{\"id\":\"ncIHWGQQvX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ghf6odawTA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Task \",\"col\":3}},{\"id\":\"fq2awbmT5y\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"yeAT9U5-IK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Digital Marketing \",\"col\":3}},{\"id\":\"h-MzmthRZ5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERP\",\"col\":3}},{\"id\":\"9_Hl21T5tf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS\",\"col\":3}},{\"id\":\"3EvzAHB99Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Billing\",\"col\":3}},{\"id\":\"3okcEf571B\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Website\",\"col\":3}},{\"id\":\"gYBcLFF6X5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounting \",\"col\":3}}]",
+ "creation": "2026-01-09 13:04:27.424098",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "workflow",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Deskgoo Task",
+ "link_to": "Task",
+ "link_type": "DocType",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project",
+   "link_count": 0,
+   "link_to": "Project",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Task",
+   "link_count": 0,
+   "link_to": "Task",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project Template",
+   "link_count": 0,
+   "link_to": "Project Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project Type",
+   "link_count": 0,
+   "link_to": "Project Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Project",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Project Update",
+   "link_count": 0,
+   "link_to": "Project Update",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Timesheet",
+   "link_count": 0,
+   "link_to": "Timesheet",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Type",
+   "link_count": 0,
+   "link_to": "Activity Type",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Activity Type",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Cost",
+   "link_count": 0,
+   "link_to": "Activity Cost",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Timesheet",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Daily Timesheet Summary",
+   "link_count": 0,
+   "link_to": "Daily Timesheet Summary",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Project",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Project wise Stock Tracking",
+   "link_count": 0,
+   "link_to": "Project wise Stock Tracking",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Project",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Timesheet Billing Summary",
+   "link_count": 0,
+   "link_to": "Timesheet Billing Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Task",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Delayed Tasks Summary",
+   "link_count": 0,
+   "link_to": "Delayed Tasks Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Projects Settings",
+   "link_count": 0,
+   "link_to": "Projects Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-02-06 14:17:50.695363",
+ "modified_by": "Administrator",
+ "module": "Deskgoo Task",
+ "name": "Deskgoo Task",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Digital Marketing ",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Digital Marketing\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "Add Task ",
+   "link_to": "Task",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "ERP",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"ERP\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "POS",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"POS\",false]]",
+   "type": "DocType",
+   "url": "https://frappe.school/courses/project-management?utm_source=in_app"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Billing",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Billing\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Website",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Website\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Accounting ",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Accounting\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Deskgoo Task",
+ "type": "Workspace"
+}
