@@ -159,7 +159,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-06 14:17:50.695363",
+ "modified": "2026-02-24 13:23:51.834887",
  "modified_by": "Administrator",
  "module": "Deskgoo Task",
  "name": "Deskgoo Task",
@@ -177,7 +177,32 @@
    "doc_view": "List",
    "label": "Digital Marketing ",
    "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Digital Marketing\",false]]",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Digital Marketing\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "ERP",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"ERP\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "POS",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"POS\"]]",
+   "type": "DocType",
+   "url": "https://frappe.school/courses/project-management?utm_source=in_app"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Billing",
+   "link_to": "Task",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Billing\"]]",
    "type": "DocType"
   },
   {
@@ -190,35 +215,10 @@
   },
   {
    "color": "Grey",
-   "doc_view": "List",
-   "label": "ERP",
-   "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"ERP\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "POS",
-   "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"POS\",false]]",
-   "type": "DocType",
-   "url": "https://frappe.school/courses/project-management?utm_source=in_app"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "",
-   "label": "Billing",
-   "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Billing\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
    "doc_view": "",
    "label": "Website",
    "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Website\",false]]",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Website\"]]",
    "type": "DocType"
   },
   {
@@ -226,7 +226,7 @@
    "doc_view": "List",
    "label": "Accounting ",
    "link_to": "Task",
-   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Accounting\",false]]",
+   "stats_filter": "[[\"Task\",\"custom_project_type\",\"=\",\"Accounting\"]]",
    "type": "DocType"
   }
  ],

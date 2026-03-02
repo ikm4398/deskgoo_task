@@ -159,8 +159,8 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-06 14:22:49.544485",
- "modified_by": "anisha@deskgoo.com",
+ "modified": "2026-02-24 13:39:22.603013",
+ "modified_by": "Administrator",
  "module": "Deskgoo Task",
  "name": "Deskgoo Support",
  "number_cards": [],
@@ -173,15 +173,6 @@
  "sequence_id": 2.0,
  "shortcuts": [
   {
-   "color": "Blue",
-   "doc_view": "List",
-   "format": "{} Digital Marketing",
-   "label": "Digital Marketing",
-   "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Digital Marketing\",false]]",
-   "type": "DocType"
-  },
-  {
    "color": "Green",
    "doc_view": "New",
    "format": "{} Assigned",
@@ -191,12 +182,12 @@
    "type": "DocType"
   },
   {
-   "color": "Orange",
+   "color": "Blue",
    "doc_view": "List",
-   "format": "{} ERP",
-   "label": "ERP",
+   "format": "{} Digital Marketing",
+   "label": "Digital Marketing",
    "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"ERP\",false]]",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Digital Marketing\"]]",
    "type": "DocType"
   },
   {
@@ -205,9 +196,18 @@
    "format": "{} POS",
    "label": "POS",
    "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"POS\",false]]",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"POS\"]]",
    "type": "DocType",
    "url": "https://frappe.school/courses/project-management?utm_source=in_app"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "format": "{} ERP",
+   "label": "ERP",
+   "link_to": "Issue",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"ERP\"]]",
+   "type": "DocType"
   },
   {
    "color": "Blue",
@@ -215,7 +215,7 @@
    "format": "{} Website",
    "label": "Website",
    "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Website\",false]]",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Website\"]]",
    "type": "DocType"
   },
   {
@@ -224,7 +224,7 @@
    "format": "{} Billing",
    "label": "Billing",
    "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Billing\",false]]",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Billing\"]]",
    "type": "DocType"
   },
   {
@@ -233,7 +233,7 @@
    "format": "{} Accounting",
    "label": "Accounting",
    "link_to": "Issue",
-   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Accounting\",false]]",
+   "stats_filter": "[[\"Issue\",\"custom_project_type\",\"=\",\"Accounting\"]]",
    "type": "DocType"
   }
  ],

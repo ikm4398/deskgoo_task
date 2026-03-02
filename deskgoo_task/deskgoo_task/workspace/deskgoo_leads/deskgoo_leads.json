@@ -159,7 +159,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-06 13:58:28.364198",
+ "modified": "2026-02-24 13:32:15.389856",
  "modified_by": "Administrator",
  "module": "Deskgoo Task",
  "name": "Deskgoo Leads",
@@ -173,19 +173,35 @@
  "sequence_id": 3.0,
  "shortcuts": [
   {
-   "doc_view": "List",
-   "label": "ERP",
-   "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"ERP\",false]]",
-   "type": "DocType"
-  },
-  {
    "color": "Blue",
    "doc_view": "List",
    "format": "{} Open",
    "label": "Digital Marketing",
    "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Digital Marketing\",false]]",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Digital Marketing\"]]",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "ERP",
+   "link_to": "Lead",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"ERP\"]]",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Int Leads",
+   "link_to": "Lead",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Int Leads\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "format": "{} Accepted",
+   "label": "Accepted",
+   "link_to": "Lead",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Accepted\"]]",
    "type": "DocType"
   },
   {
@@ -202,7 +218,7 @@
    "doc_view": "List",
    "label": "POS",
    "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Pos\",false]]",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"POS\"]]",
    "type": "DocType",
    "url": "https://frappe.school/courses/project-management?utm_source=in_app"
   },
@@ -210,21 +226,14 @@
    "doc_view": "",
    "label": "Website",
    "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Webiste\",false]]",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Website\"]]",
    "type": "DocType"
   },
   {
    "doc_view": "",
    "label": "Billing",
    "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Billing\",false]]",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "Int Leads",
-   "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Int Leads\",false]]",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Billing\"]]",
    "type": "DocType"
   },
   {
@@ -233,16 +242,7 @@
    "format": "{} Accounting",
    "label": "Accounting",
    "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Accounting\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "format": "{} Accepted",
-   "label": "Accepted",
-   "link_to": "Lead",
-   "stats_filter": "[[\"Lead\",\"qualification_status\",\"=\",\"Qualified\",false]]",
+   "stats_filter": "[[\"Lead\",\"custom_project_type\",\"=\",\"Accounting\"]]",
    "type": "DocType"
   }
  ],

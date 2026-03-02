@@ -1,7 +1,7 @@
 {
  "app": "deskgoo_task",
  "charts": [],
- "content": "[{\"id\":\"7Mbx6I5JUf\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nyuMo9byw7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"dILbX_r0ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Projects\",\"col\":3}},{\"id\":\"ncIHWGQQvX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JT8ntrqRiJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Digital Marketing\",\"col\":5}},{\"id\":\"RsafDhm1MS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERP\",\"col\":3}},{\"id\":\"jx5aPK9aXN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS\",\"col\":3}},{\"id\":\"DbctrdmAy1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Website\",\"col\":3}},{\"id\":\"ABEOBWYZuM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Billing\",\"col\":3}},{\"id\":\"cWWEFUK8lz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounting\",\"col\":4}}]",
+ "content": "[{\"id\":\"7Mbx6I5JUf\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nyuMo9byw7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"dILbX_r0ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Projects\",\"col\":3}},{\"id\":\"ncIHWGQQvX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JT8ntrqRiJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Digital Marketing\",\"col\":5}},{\"id\":\"RsafDhm1MS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERP\",\"col\":3}},{\"id\":\"jx5aPK9aXN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS\",\"col\":3}},{\"id\":\"DbctrdmAy1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Website\",\"col\":3}},{\"id\":\"ABEOBWYZuM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Billing\",\"col\":3}},{\"id\":\"cWWEFUK8lz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile App \",\"col\":4}},{\"id\":\"4wi9ON4miI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounting\",\"col\":4}}]",
  "creation": "2026-01-31 21:47:03.692233",
  "custom_blocks": [],
  "docstatus": 0,
@@ -159,7 +159,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-06 13:58:00.096726",
+ "modified": "2026-02-26 13:14:35.805395",
  "modified_by": "Administrator",
  "module": "Deskgoo Task",
  "name": "Deskgoo Projects",
@@ -182,12 +182,12 @@
    "type": "DocType"
   },
   {
-   "color": "Orange",
+   "color": "Cyan",
    "doc_view": "List",
-   "format": "{} ERP",
-   "label": "ERP",
+   "format": "{} Accounting",
+   "label": "Mobile App ",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"ERP\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Mobile App\"]]",
    "type": "DocType"
   },
   {
@@ -196,7 +196,16 @@
    "format": "{} Digital Marketing",
    "label": "Digital Marketing",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Digital Marketing\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Digital Marketing\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "format": "{} ERP",
+   "label": "ERP",
+   "link_to": "Project",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"ERP\"]]",
    "type": "DocType"
   },
   {
@@ -205,7 +214,7 @@
    "format": "{} POS",
    "label": "POS",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"POS\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"POS\"]]",
    "type": "DocType",
    "url": "https://frappe.school/courses/project-management?utm_source=in_app"
   },
@@ -215,7 +224,7 @@
    "format": "{} Website",
    "label": "Website",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Website\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Website\"]]",
    "type": "DocType"
   },
   {
@@ -224,7 +233,7 @@
    "format": "{} Billing",
    "label": "Billing",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Billing\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Billing\"]]",
    "type": "DocType"
   },
   {
@@ -233,7 +242,7 @@
    "format": "{} Accounting",
    "label": "Accounting",
    "link_to": "Project",
-   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Accounting\",false]]",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Accounting\"]]",
    "type": "DocType"
   }
  ],

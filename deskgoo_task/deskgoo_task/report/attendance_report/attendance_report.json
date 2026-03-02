@@ -1,0 +1,122 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "label": "Employee",
+   "width": 150
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "width": 150
+  },
+  {
+   "fieldname": "attendance_date",
+   "fieldtype": "Data",
+   "label": "Date",
+   "width": 150
+  },
+  {
+   "fieldname": "attendance_day",
+   "fieldtype": "Data",
+   "label": "Day",
+   "width": 100
+  },
+  {
+   "fieldname": "shift_type",
+   "fieldtype": "Data",
+   "label": "Shift",
+   "width": 150
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "width": 70
+  },
+  {
+   "fieldname": "in_time",
+   "fieldtype": "Datetime",
+   "label": "InTime",
+   "width": 180
+  },
+  {
+   "fieldname": "out_time",
+   "fieldtype": "Datetime",
+   "label": "OutTime",
+   "width": 180
+  },
+  {
+   "fieldname": "working_hours",
+   "fieldtype": "Float",
+   "label": "Hours",
+   "width": 80
+  },
+  {
+   "fieldname": "late_entry",
+   "fieldtype": "Check",
+   "label": "Late",
+   "width": 80
+  }
+ ],
+ "creation": "2026-02-25 11:51:56.355642",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "emp",
+   "mandatory": 0,
+   "options": "Employee",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From",
+   "mandatory": 1,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To",
+   "mandatory": 1,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-02-26 17:28:17.751135",
+ "modified_by": "Administrator",
+ "module": "Deskgoo Task",
+ "name": "Attendance Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "WITH RECURSIVE DateRange AS (\r\n    SELECT %(from_date)s AS attendance_date\r\n    UNION ALL\r\n    SELECT DATE_ADD(attendance_date, INTERVAL 1 DAY)\r\n    FROM DateRange\r\n    WHERE attendance_date <= %(to_date)s\r\n),\r\n\r\nShiftForDate AS (\r\n    SELECT \r\n        dr.attendance_date,\r\n        sa.employee,\r\n        st.name AS shift_type,\r\n        st.start_time AS shift_start_time_raw,\r\n        ADDTIME(st.start_time, '00:15:00') AS shift_start_with_buffer\r\n    FROM DateRange dr\r\n    INNER JOIN `tabShift Assignment` sa \r\n        ON sa.start_date <= dr.attendance_date\r\n       AND (sa.end_date IS NULL OR sa.end_date >= dr.attendance_date)\r\n    LEFT JOIN `tabShift Type` st ON st.name = sa.shift_type\r\n    WHERE sa.creation = (\r\n        SELECT MAX(sa2.creation)\r\n        FROM `tabShift Assignment` sa2\r\n        WHERE sa2.employee = sa.employee\r\n          AND sa2.start_date <= dr.attendance_date\r\n          AND (sa2.end_date IS NULL OR sa2.end_date >= dr.attendance_date)\r\n    )\r\n),\r\n\r\nCheckinRecords AS (\r\n    SELECT\r\n        ci.employee,\r\n        DATE(ci.time) AS attendance_date,\r\n        ci.time AS checkin_time,\r\n        ci.log_type\r\n    FROM `tabEmployee Checkin` ci\r\n    WHERE DATE(ci.time) BETWEEN %(from_date)s AND %(to_date)s\r\n      AND (%(employee)s IS NULL OR ci.employee = %(employee)s)\r\n),\r\n\r\nPairedINOUT AS (\r\n    SELECT\r\n        ci.employee,\r\n        ci.attendance_date,\r\n        ci.checkin_time AS in_time,\r\n        MIN(o.checkin_time) AS out_time\r\n    FROM CheckinRecords ci\r\n    LEFT JOIN CheckinRecords o ON \r\n        o.employee = ci.employee\r\n        AND o.log_type = 'OUT'\r\n        AND o.checkin_time > ci.checkin_time\r\n        AND o.checkin_time <= DATE_ADD(ci.checkin_time, INTERVAL 2 DAY)\r\n        AND NOT EXISTS (\r\n            SELECT 1 FROM CheckinRecords i2\r\n            WHERE i2.employee = ci.employee\r\n              AND i2.log_type = 'IN'\r\n              AND i2.checkin_time > ci.checkin_time\r\n              AND i2.checkin_time < o.checkin_time\r\n        )\r\n    WHERE ci.log_type = 'IN'\r\n    GROUP BY ci.employee, ci.checkin_time, ci.attendance_date\r\n),\r\n\r\nUnpairedOUT AS (\r\n    SELECT\r\n        o.employee,\r\n        o.attendance_date,\r\n        NULL AS in_time,\r\n        o.checkin_time AS out_time\r\n    FROM CheckinRecords o\r\n    WHERE o.log_type = 'OUT'\r\n      AND NOT EXISTS (\r\n          SELECT 1 FROM PairedINOUT p\r\n          WHERE p.employee = o.employee AND p.out_time = o.checkin_time\r\n      )\r\n),\r\n\r\nCheckinPairs AS (\r\n    SELECT * FROM PairedINOUT\r\n    UNION ALL\r\n    SELECT * FROM UnpairedOUT\r\n),\r\n\r\nPresentRecords AS (\r\n    SELECT\r\n        cp.employee AS employee,\r\n        emp.employee_name,\r\n        cp.attendance_date,\r\n        DAYNAME(cp.attendance_date) AS attendance_day,\r\n        sfd.shift_type,\r\n        'Present' AS status,\r\n        cp.in_time,\r\n        cp.out_time,\r\n        ROUND(\r\n            IF(cp.in_time IS NOT NULL AND cp.out_time IS NOT NULL,\r\n               TIMESTAMPDIFF(SECOND, cp.in_time, cp.out_time) / 3600.0,\r\n               0\r\n            ), 3\r\n        ) AS working_hours,\r\n        IF(\r\n            cp.in_time IS NOT NULL \r\n            AND TIME(cp.in_time) > COALESCE(sfd.shift_start_with_buffer, '09:15:00'),\r\n            1, \r\n            0\r\n        ) AS late_entry\r\n    FROM CheckinPairs cp\r\n    LEFT JOIN `tabEmployee` emp ON cp.employee = emp.name\r\n    LEFT JOIN ShiftForDate sfd \r\n        ON sfd.employee = cp.employee \r\n       AND sfd.attendance_date = cp.attendance_date\r\n    WHERE cp.in_time IS NOT NULL\r\n),\r\n\r\nAbsentRecords AS (\r\n    SELECT\r\n        emp.name AS employee,\r\n        emp.employee_name,\r\n        dr.attendance_date,\r\n        DAYNAME(dr.attendance_date) AS attendance_day,\r\n        sfd.shift_type,\r\n        'Absent' AS status,\r\n        NULL AS in_time,\r\n        NULL AS out_time,\r\n        0 AS working_hours,\r\n        0 AS late_entry\r\n    FROM DateRange dr\r\n    CROSS JOIN `tabEmployee` emp\r\n    LEFT JOIN ShiftForDate sfd \r\n        ON sfd.employee = emp.name \r\n       AND sfd.attendance_date = dr.attendance_date\r\n    LEFT JOIN CheckinPairs cp ON \r\n        emp.name = cp.employee \r\n        AND cp.attendance_date = dr.attendance_date\r\n    WHERE (%(employee)s IS NULL OR emp.name = %(employee)s)\r\n      AND cp.employee IS NULL\r\n),\r\n\r\nAllRecords AS (\r\n    SELECT * FROM PresentRecords\r\n    UNION ALL\r\n    SELECT * FROM AbsentRecords\r\n),\r\n\r\n-- Existing grand total for hours\r\nGrandTotalHours AS (\r\n    SELECT\r\n        'Total Hours' AS employee,\r\n        NULL AS employee_name,\r\n        NULL AS attendance_date,\r\n        NULL AS attendance_day,\r\n        NULL AS shift_type,\r\n        NULL AS status,\r\n        NULL AS in_time,\r\n        NULL AS out_time,\r\n        ROUND(SUM(working_hours), 3) AS working_hours,\r\n        NULL AS late_entry\r\n    FROM AllRecords\r\n),\r\n\r\n-- New: Count of Present days\r\nPresentCount AS (\r\n    SELECT\r\n        'Total Present Days' AS employee,\r\n        NULL AS employee_name,\r\n        NULL AS attendance_date,\r\n        NULL AS attendance_day,\r\n        NULL AS shift_type,\r\n        'Present' AS status,\r\n        NULL AS in_time,\r\n        NULL AS out_time,\r\n        CAST(COUNT(*) AS SIGNED) AS working_hours,\r\n        NULL AS late_entry\r\n    FROM AllRecords\r\n    WHERE status = 'Present'\r\n),\r\n\r\n-- New: Count of Absent days\r\nAbsentCount AS (\r\n    SELECT\r\n        'Total Absent Days' AS employee,\r\n        NULL AS employee_name,\r\n        NULL AS attendance_date,\r\n        NULL AS attendance_day,\r\n        NULL AS shift_type,\r\n        'Absent' AS status,\r\n        NULL AS in_time,\r\n        NULL AS out_time,\r\n        CAST(COUNT(*) AS SIGNED) AS working_hours,\r\n        NULL AS late_entry\r\n    FROM AllRecords\r\n    WHERE status = 'Absent'\r\n)\r\n\r\n-- Final output: regular rows + hours total + present count + absent count\r\nSELECT \r\n    employee,\r\n    employee_name,\r\n    attendance_date,\r\n    attendance_day,\r\n    shift_type,\r\n    status,\r\n    in_time,\r\n    out_time,\r\n    working_hours,\r\n    late_entry\r\nFROM AllRecords\r\n\r\nUNION ALL\r\nSELECT * FROM GrandTotalHours\r\nUNION ALL\r\nSELECT * FROM PresentCount\r\nUNION ALL\r\nSELECT * FROM AbsentCount\r\n\r\nORDER BY \r\n    CASE \r\n        WHEN employee = 'Total Hours' THEN 2\r\n        WHEN employee = 'Total Present Days' THEN 3\r\n        WHEN employee = 'Total Absent Days' THEN 4\r\n        ELSE 1 \r\n    END,\r\n    employee,\r\n    attendance_date;",
+ "ref_doctype": "Attendance",
+ "report_name": "Attendance Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "Employee"
+  }
+ ],
+ "timeout": 0
+}
