@@ -1,7 +1,7 @@
 {
  "app": "deskgoo_task",
  "charts": [],
- "content": "[{\"id\":\"7Mbx6I5JUf\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nyuMo9byw7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"dILbX_r0ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Projects\",\"col\":3}},{\"id\":\"ncIHWGQQvX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JT8ntrqRiJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Digital Marketing\",\"col\":5}},{\"id\":\"RsafDhm1MS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERP\",\"col\":3}},{\"id\":\"jx5aPK9aXN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS\",\"col\":3}},{\"id\":\"DbctrdmAy1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Website\",\"col\":3}},{\"id\":\"ABEOBWYZuM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Billing\",\"col\":3}},{\"id\":\"cWWEFUK8lz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile App \",\"col\":4}},{\"id\":\"4wi9ON4miI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounting\",\"col\":4}}]",
+ "content": "[{\"id\":\"7Mbx6I5JUf\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"nyuMo9byw7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"dILbX_r0ve\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Projects\",\"col\":3}},{\"id\":\"ncIHWGQQvX\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JT8ntrqRiJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Digital Marketing\",\"col\":5}},{\"id\":\"RsafDhm1MS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERP\",\"col\":3}},{\"id\":\"jx5aPK9aXN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS\",\"col\":3}},{\"id\":\"DbctrdmAy1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Website\",\"col\":3}},{\"id\":\"ABEOBWYZuM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Billing\",\"col\":3}},{\"id\":\"cWWEFUK8lz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile App \",\"col\":4}},{\"id\":\"4wi9ON4miI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Accounting\",\"col\":4}},{\"id\":\"wcWphGvPBj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Diet Management System\",\"col\":4}}]",
  "creation": "2026-01-31 21:47:03.692233",
  "custom_blocks": [],
  "docstatus": 0,
@@ -159,7 +159,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-02-26 13:14:35.805395",
+ "modified": "2026-03-15 12:05:56.975056",
  "modified_by": "Administrator",
  "module": "Deskgoo Task",
  "name": "Deskgoo Projects",
@@ -179,6 +179,15 @@
    "label": "Add Projects",
    "link_to": "Project",
    "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Diet Management System",
+   "link_to": "Project",
+   "stats_filter": "[[\"Project\",\"project_type\",\"=\",\"Diet Management System\"]]",
    "type": "DocType"
   },
   {
